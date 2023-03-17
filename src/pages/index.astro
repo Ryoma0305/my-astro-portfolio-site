@@ -1,81 +1,169 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Welcome to Astro.">
-	<main>
-		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
-		<p class="instructions">
-			To get started, open the directory <code>src/pages</code> in your project.<br />
-			<strong>Code Challenge:</strong> Tweak the "Welcome to Astro" message above.
-		</p>
-		<ul role="list" class="link-card-grid">
-			<Card
-				href="https://docs.astro.build/"
-				title="Documentation"
-				body="Learn how Astro works and explore the official API docs."
-			/>
-			<Card
-				href="https://astro.build/integrations/"
-				title="Integrations"
-				body="Supercharge your project with new frameworks and libraries."
-			/>
-			<Card
-				href="https://astro.build/themes/"
-				title="Themes"
-				body="Explore a galaxy of community-built starter themes."
-			/>
-			<Card
-				href="https://astro.build/chat/"
-				title="Community"
-				body="Come say hi to our amazing Discord community. ❤️"
-			/>
-		</ul>
-	</main>
-</Layout>
+  <section class="mainvisual">
+    <div class="header-main">
+      <div class="header-main-text">
+        <h2 class="robot mainvisual-ttl">
+          WELCOME<span>TO THE</span><span>WORLD OF</span><span
+            >ARIMURA RYOMA</span
+          >
+        </h2>
+        <p class="robot mainvisual-text">
+          I'm Ryoma <span>a web developer</span> based in Osaka, Japan.
+        </p>
+      </div>
+    </div>
+    <div class="scroll-arrow-wrap">
+      <a href="#about" class="scroll-arrow"><span></span>Scroll</a>
+    </div>
+  </section>
+  <main id="main">
+    <section class="profile inner" id="about">
+      <div class="ttl section-ttl">
+        <h2 class="robot ttl-text1">ABOUT ME</h2>
+        <p class="ttl-text2 notosans">Who I am</p>
+      </div>
 
-<style>
-	main {
-		margin: auto;
-		padding: 1.5rem;
-		max-width: 60ch;
-	}
-	h1 {
-		font-size: 3rem;
-		font-weight: 800;
-		margin: 0;
-	}
-	.text-gradient {
-		background-image: var(--accent-gradient);
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		background-size: 400%;
-		background-position: 0%;
-	}
-	.instructions {
-		line-height: 1.6;
-		margin: 1rem 0;
-		border: 1px solid rgba(var(--accent), 25%);
-		background-color: white;
-		padding: 1rem;
-		border-radius: 0.4rem;
-	}
-	.instructions code {
-		font-size: 0.875em;
-		font-weight: bold;
-		background: rgba(var(--accent), 12%);
-		color: rgb(var(--accent));
-		border-radius: 4px;
-		padding: 0.3em 0.45em;
-	}
-	.instructions strong {
-		color: rgb(var(--accent));
-	}
-	.link-card-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-		gap: 1rem;
-		padding: 0;
-	}
-</style>
+      <div class="profile-content">
+        <p class="profile-content-image">
+          <img src="/images/ico_ryoma.jpg" alt="" />
+        </p>
+        <div class="profile-content-box">
+          <h2 class="profile-content-box-ttl robot">Arimura Ryoma</h2>
+          <div class="profile-content-box-text notosans">
+            <p>
+              大阪出身、１９９１年生まれの２９歳。<br />
+              Web制作、コーディングが大好きです。Web制作に出会い、これからの人生で本当にやりたいことを見つけられたと思っています。<br
+              />
+              Web制作のスキルを上げる為、日々勉強に励んでいます。<br />
+              趣味はサッカー観戦。週末は応援するマイクラブの試合を観にスタジアムに通っています。
+              どうぞよろしくお願いします。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="skill">
+      <div class="ttl inner">
+        <div class="ttl section-ttl">
+          <h2 class="robot ttl-text1">SKILLS</h2>
+          <p class="ttl-text2 notosans">What I do</p>
+        </div>
+      </div>
+      <div class="skill-wrapper">
+        <ul class="skill-box inner">
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/html.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">HTML5</p>
+          </li>
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/css.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">CSS3</p>
+          </li>
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/js.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">JavaScript</p>
+          </li>
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/jquery.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">jQuery</p>
+          </li>
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/sass.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">Sass</p>
+          </li>
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/php.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">PHP</p>
+          </li>
+          <!-- <li class="skill-box-content">
+							<p class="skill-box-content-image"><img
+										src="/images/laravel.png" alt=""></p>
+							<p class="skill-box-content-ttl">Laravel</p>
+						</li> -->
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/github.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">GitHub</p>
+          </li>
+          <li class="skill-box-content">
+            <p class="skill-box-content-image">
+              <img src="/images/wordpress.png" alt="" />
+            </p>
+            <p class="skill-box-content-ttl">WordPress</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="blog">
+      <div class="ttl inner">
+        <div class="ttl section-ttl">
+          <h2 class="robot ttl-text1">BLOG</h2>
+          <p class="ttl-text2 notosans">What I think</p>
+        </div>
+      </div>
+      <ul class="blog-content">
+        <li id="post-<?php the_ID(); ?>">
+          <p class="blog-image">
+            <a href=""><!--?php the_post_thumbnail( '' ); ?--></a>
+          </p>
+          <dl class="notosans">
+            <dt>
+              <a href=""><!--?php the_title(); ?--></a>
+            </dt>
+            <dd>
+              <a href=""><!--?php the_excerpt(); ?--></a>
+            </dd>
+          </dl>
+          <p class="viewmore">
+            <a href="">view more</a>
+          </p>
+        </li>
+      </ul>
+      <p class="button-container robot">
+        <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button"
+          >MORE</a
+        >
+      </p>
+    </section>
+
+    <section class="value">
+      <div class="value-ttl-wrapper">
+        <div class="value-ttl">
+          <p class="value-ttl-text1 robot">My Value</p>
+          <p class="value-ttl-text2">継続は力なり</p>
+        </div>
+      </div>
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="/images/others-image2-2x.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/others-image4-2x.jpg" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/others-image3-2x.jpg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
