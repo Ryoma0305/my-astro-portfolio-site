@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Slider from "../components/Slider";
 ---
 
 <Layout title="Welcome to Astro.">
@@ -143,27 +144,29 @@ import Layout from "../layouts/Layout.astro";
         >
       </p>
     </section>
-
-    <section class="value">
-      <div class="value-ttl-wrapper">
-        <div class="value-ttl">
-          <p class="value-ttl-text1 robot">My Value</p>
-          <p class="value-ttl-text2">継続は力なり</p>
-        </div>
-      </div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="/images/others-image2-2x.jpg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="/images/others-image4-2x.jpg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="/images/others-image3-2x.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <Slider client:load />
   </main>
 </Layout>
+<!-- <script>
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    slidesPerView: 3,
+    speed: 6000,
+    allowTouchMove: false, // スワイプ無効
+    autoplay: {
+      delay: 0, // 途切れなくループ
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+</script> -->
+<style>
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+  .swiper-slide img {
+    height: auto;
+    width: 100%;
+  }
+</style>
