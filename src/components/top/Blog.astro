@@ -13,7 +13,7 @@ const data = await BlogsQuery();
   <ul class="blog-content">
     {
       data.slice(0, 3).map((post: any) => (
-        <li>
+        <li class="relative">
           <figure class="blog-image">
             <img
               src={post._embedded["wp:featuredmedia"]["0"].source_url}
@@ -21,19 +21,20 @@ const data = await BlogsQuery();
             />
           </figure>
           <dl class="notosans">
-            <dt>
-              <a href="" set:html={post.title.rendered} />
-            </dt>
+            <dt set:html={post.title.rendered} />
             <dd set:html={post.excerpt.rendered.replace("[&hellip;]", "")} />
           </dl>
-          <p class="viewmore">
-            <a href="">view more</a>
-          </p>
+          <a
+            href={"/blogs/" + post.id + ""}
+            class="viewmore before:absolute before:inset-0"
+          >
+            view more
+          </a>
         </li>
       ))
     }
   </ul>
   <p class="button-container robot">
-    <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button">MORE</a>
+    <a href="/blogs/" class="button">MORE</a>
   </p>
 </section>
