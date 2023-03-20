@@ -1,11 +1,19 @@
 ---
+import type { GetStaticPathsOptions, InferGetStaticPropsType } from "astro";
+
 import Layout from "../../layouts/Layout.astro";
 import PageHeader from "../../components/common/pageHeader.astro";
-// import Pagination from "../../components/blogs/Pagination.astro";
+import Pagination from "../../components/blogs/Pagination.astro";
 import { BlogsQuery } from "../../libraries/wordpress";
 // import { formattedDate } from "../../utility/formattedDate.js";
 
-const posts = await BlogsQuery();
+export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
+  const post = await BlogsQuery();
+  return paginate(post, { pageSize: 1 });
+};
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { page } = Astro.props;
+console.log(page);
 ---
 
 <Layout>
@@ -15,7 +23,7 @@ const posts = await BlogsQuery();
       <div class="blog-archive-container">
         <ul class="blog-content">
           {
-            posts.map((post: any) => (
+            page.data.map((post: any) => (
               <li class="relative">
                 {post._embedded["wp:featuredmedia"] && (
                   <figure class="blog-image">
@@ -47,6 +55,7 @@ const posts = await BlogsQuery();
             ))
           }
         </ul>
+        <Pagination page={page} pageType={"blogs"} />
       </div>
     </section>
   </main>
