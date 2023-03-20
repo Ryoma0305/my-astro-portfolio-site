@@ -2,6 +2,7 @@
 import Swiper from "../components/Swiper.astro";
 import Blog from "../components/top/Blog.astro";
 import Layout from "../layouts/Layout.astro";
+import Slider from "../components/Slider";
 ---
 
 <Layout>
@@ -117,3 +118,26 @@ import Layout from "../layouts/Layout.astro";
     <Swiper />
   </main>
 </Layout>
+<!-- <script>
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    slidesPerView: 3,
+    speed: 6000,
+    allowTouchMove: false, // スワイプ無効
+    autoplay: {
+      delay: 0, // 途切れなくループ
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+</script> -->
+<style>
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+  .swiper-slide img {
+    height: auto;
+    width: 100%;
+  }
+</style>
