@@ -1,0 +1,39 @@
+---
+import { BlogsQuery } from "../../libraries/wordpress";
+const data = await BlogsQuery();
+---
+
+<section class="blog">
+  <div class="ttl inner">
+    <div class="ttl section-ttl">
+      <h2 class="robot ttl-text1">BLOG</h2>
+      <p class="ttl-text2 notosans">What I think</p>
+    </div>
+  </div>
+  <ul class="blog-content">
+    {
+      data.slice(0, 3).map((post: any) => (
+        <li>
+          <figure class="blog-image">
+            <img
+              src={post._embedded["wp:featuredmedia"]["0"].source_url}
+              alt={post.title.rendered}
+            />
+          </figure>
+          <dl class="notosans">
+            <dt>
+              <a href="" set:html={post.title.rendered} />
+            </dt>
+            <dd set:html={post.excerpt.rendered.replace("[&hellip;]", "")} />
+          </dl>
+          <p class="viewmore">
+            <a href="">view more</a>
+          </p>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="button-container robot">
+    <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button">MORE</a>
+  </p>
+</section>

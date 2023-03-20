@@ -1,8 +1,10 @@
 ---
+import Swiper from "../components/Swiper.astro";
+import Blog from "../components/top/Blog.astro";
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout>
   <section class="mainvisual">
     <div class="header-main">
       <div class="header-main-text">
@@ -111,59 +113,7 @@ import Layout from "../layouts/Layout.astro";
         </ul>
       </div>
     </section>
-
-    <section class="blog">
-      <div class="ttl inner">
-        <div class="ttl section-ttl">
-          <h2 class="robot ttl-text1">BLOG</h2>
-          <p class="ttl-text2 notosans">What I think</p>
-        </div>
-      </div>
-      <ul class="blog-content">
-        <li id="post-<?php the_ID(); ?>">
-          <p class="blog-image">
-            <a href=""><!--?php the_post_thumbnail( '' ); ?--></a>
-          </p>
-          <dl class="notosans">
-            <dt>
-              <a href=""><!--?php the_title(); ?--></a>
-            </dt>
-            <dd>
-              <a href=""><!--?php the_excerpt(); ?--></a>
-            </dd>
-          </dl>
-          <p class="viewmore">
-            <a href="">view more</a>
-          </p>
-        </li>
-      </ul>
-      <p class="button-container robot">
-        <a href="<?php echo esc_url(home_url('/blog')); ?>" class="button"
-          >MORE</a
-        >
-      </p>
-    </section>
-
-    <section class="value">
-      <div class="value-ttl-wrapper">
-        <div class="value-ttl">
-          <p class="value-ttl-text1 robot">My Value</p>
-          <p class="value-ttl-text2">継続は力なり</p>
-        </div>
-      </div>
-      <div class="swiper">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide">
-            <img src="/images/others-image2-2x.jpg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="/images/others-image4-2x.jpg" alt="" />
-          </div>
-          <div class="swiper-slide">
-            <img src="/images/others-image3-2x.jpg" alt="" />
-          </div>
-        </div>
-      </div>
-    </section>
+    <Blog />
+    <Swiper />
   </main>
 </Layout>

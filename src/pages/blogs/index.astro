@@ -1,0 +1,53 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/common/pageHeader.astro";
+// import Pagination from "../../components/blogs/Pagination.astro";
+import { BlogsQuery } from "../../libraries/wordpress";
+// import { formattedDate } from "../../utility/formattedDate.js";
+
+const posts = await BlogsQuery();
+---
+
+<Layout>
+  <PageHeader title={"BLOG"} />
+  <main id="main">
+    <section class="blog-archive blog">
+      <div class="blog-archive-container">
+        <ul class="blog-content">
+          {
+            posts.map((post: any) => (
+              <li class="relative">
+                {post._embedded["wp:featuredmedia"] && (
+                  <figure class="blog-image">
+                    <img
+                      src={post._embedded["wp:featuredmedia"]["0"].source_url}
+                      alt={post.title.rendered}
+                    />
+                  </figure>
+                )}
+
+                <dl class="notosans">
+                  <dt>
+                    <a href="" set:html={post.title.rendered} />
+                  </dt>
+                  <dd>
+                    <a
+                      href=""
+                      set:html={post.excerpt.rendered.replace("[&hellip;]", "")}
+                    />
+                  </dd>
+                </dl>
+                <a
+                  href={"/blogs/" + post.id + ""}
+                  class="viewmore before:absolute before:inset-0"
+                >
+                  view more
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </section>
+  </main>
+</Layout>

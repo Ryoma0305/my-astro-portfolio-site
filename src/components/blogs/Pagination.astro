@@ -1,0 +1,131 @@
+---
+const { page, pageType = null } = Astro.props;
+// const pageUrl = pageType ? `/${pageType}/${pageSlug}/` : "/";
+const pageUrl = pageType ? `/${pageType}/` : "/";
+
+const totalPageNumber = Math.ceil(page.total / page.size);
+
+let currentPageNumber: number;
+currentPageNumber = page.currentPage;
+
+const paginationGenerator = (
+  currentPageNumber: number,
+  totalPageNumber: number,
+  width: number = 1
+) => {
+  const prev = currentPageNumber - width;
+  const next = currentPageNumber + width + 1;
+  const ranges = [];
+  const rangeWidthDots: [string?, ...number[]] = [];
+  let length: number;
+  for (let i = 1; i <= totalPageNumber; i += 1) {
+    if (i === 1 || i === totalPageNumber || (i >= prev && i <= next)) {
+      ranges.push(i);
+    } else if (i < prev) {
+      i = prev - 1;
+    } else if (i > next) {
+      ranges.push(totalPageNumber);
+      break;
+    }
+  }
+  ranges.forEach((range) => {
+    if (length) {
+      if (range - length === 2) {
+        rangeWidthDots.push(length + 1);
+      } else if (range - length !== 1) {
+        rangeWidthDots.push("...");
+      }
+    }
+    rangeWidthDots.push(range);
+    length = range;
+  });
+  return rangeWidthDots;
+};
+---
+
+<div class="mt-10 flex items-center justify-center">
+  {
+    page.url.prev && (
+      <a
+        href={page.url.prev + "/"}
+        class="flex h-8 w-8 items-center justify-center rounded-full border-transparent hover:border-gray-200 hover:bg-gray-200 lg:duration-300 lg:ease-in-out"
+      >
+        <img
+          src="/images/common/icon_pagination_arrow_left.svg"
+          class="lg:mr-[0.2rem]"
+          alt="前へ"
+        />
+      </a>
+    )
+  }
+
+  {
+    totalPageNumber > 1 && (
+      <ul class="xs:px-[1.1rem] flex items-center gap-4 px-[1.2rem] text-gray-600">
+        {paginationGenerator(currentPageNumber, totalPageNumber).map((page) => {
+          if (page === 1 && page === currentPageNumber) {
+            return (
+              <li class="is-current">
+                <span class="bg-brand flex h-8 w-8 items-center justify-center rounded-full border-transparent text-white lg:duration-300 lg:ease-in-out">
+                  {page}
+                </span>
+              </li>
+            );
+          } else if (page === 1) {
+            return (
+              <li>
+                <a
+                  href={pageUrl}
+                  class="flex h-8 w-8 items-center justify-center rounded-full border-transparent hover:border-gray-200 hover:bg-gray-200 lg:duration-300 lg:ease-in-out"
+                >
+                  {page}
+                </a>
+              </li>
+            );
+          } else if (page === currentPageNumber) {
+            return (
+              <li class="is-current">
+                <span class="bg-brand flex h-8 w-8 items-center justify-center rounded-full border-transparent text-white">
+                  {page}
+                </span>
+              </li>
+            );
+          } else if (page === "...") {
+            return (
+              <li>
+                <span class="flex h-8 w-8 items-center justify-center rounded-full border-transparent">
+                  {page}
+                </span>
+              </li>
+            );
+          }
+          return (
+            <li>
+              <a
+                href={`${pageUrl}${page}/`}
+                class="flex h-8 w-8 items-center justify-center rounded-full border-transparent hover:border-gray-200 hover:bg-gray-200 lg:duration-300 lg:ease-in-out"
+              >
+                {page}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    )
+  }
+
+  {
+    page.url.next && (
+      <a
+        href={page.url.next + "/"}
+        class="flex h-8 w-8 items-center justify-center rounded-full border-transparent hover:border-gray-200 hover:bg-gray-200 lg:duration-300 lg:ease-in-out"
+      >
+        <img
+          src="/images/common/icon_pagination_arrow_right.svg"
+          class="lg:ml-[0.2rem]"
+          alt="次へ"
+        />
+      </a>
+    )
+  }
+</div>

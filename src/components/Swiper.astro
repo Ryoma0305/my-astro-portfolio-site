@@ -1,0 +1,53 @@
+<section class="value">
+  <div class="value-ttl-wrapper">
+    <div class="value-ttl">
+      <p class="value-ttl-text1 robot">My Value</p>
+      <p class="value-ttl-text2">継続は力なり</p>
+    </div>
+  </div>
+  <div class="swiper">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <img src="/images/others-image2-2x.jpg" alt="" />
+      </div>
+      <div class="swiper-slide">
+        <img src="/images/others-image4-2x.jpg" alt="" />
+      </div>
+      <div class="swiper-slide">
+        <img src="/images/others-image3-2x.jpg" alt="" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"
+></script>
+<script is:inline>
+  const swiper = new Swiper(".swiper", {
+    loop: true,
+    slidesPerView: 3,
+    speed: 6000,
+    allowTouchMove: false, // スワイプ無効
+    autoplay: {
+      delay: 0, // 途切れなくループ
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+  });
+</script>
+<style>
+  .swiper-wrapper {
+    transition-timing-function: linear;
+  }
+  .swiper-slide img {
+    height: auto;
+    width: 100%;
+  }
+</style>

@@ -1,0 +1,43 @@
+---
+import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
+
+import Layout from "../../layouts/Layout.astro";
+import PageHeader from "../../components/common/pageHeader.astro";
+import DetailPagePagination from "../../components/common/DetailPagePagination.astro";
+import { BlogsQuery } from "../../libraries/wordpress";
+
+export async function getStaticPaths() {
+  let posts = await BlogsQuery();
+
+  return posts.map((post, index, posts) => ({
+    params: { id: post.id },
+    props: { post, index, posts },
+  }));
+}
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+const { post, index, posts } = Astro.props;
+const { id } = Astro.params;
+const prevSlug = index > 0 ? posts[index - 1].id : "";
+const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
+---
+
+<Layout>
+  <PageHeader title={"BLOG"} />
+  <main id="main">
+    <section class="blog-singlepage blog inner">
+      <div
+        class="blog-singlepage-content notosans"
+        set:html={post.content.rendered}
+      />
+    </section>
+    <DetailPagePagination
+      prevSlug={prevSlug}
+      nextSlug={nextSlug}
+      slug={"blogs"}
+      prevText="前の記事へ"
+      nextText="次の記事へ"
+    />
+  </main>
+</Layout>
