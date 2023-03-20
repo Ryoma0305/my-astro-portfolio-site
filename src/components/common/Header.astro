@@ -1,13 +1,34 @@
-<header>
-  <div class="header-content">
-    <h1 class="header-content-logo robot">
-      <a href="<?php echo home_url('/'); ?>">RYOMA ARIMURA</a>
+---
+import type { LinkType } from "../../types/types";
+interface Props {
+  links: LinkType[];
+}
+const { links } = Astro.props;
+---
+
+<header class="absolute top-0 right-0 left-0 bg-main p-[10px] text-white">
+  <div
+    class="mx-auto hidden w-[86%] py-16 after:clear-both after:block sm:flex sm:justify-between"
+  >
+    <h1 class="font-accent text-[1.6rem] font-bold">
+      <a href="/" class="duration-300 ease-in-out hover:opacity-60"
+        >RYOMA ARIMURA</a
+      >
     </h1>
-    <nav class="header-content-menu robot">
-      <ul>
-        <li><a href="/#about">ABOUT</a></li>
-        <li><a href="<?php echo home_url('/blog'); ?>">BLOG</a></li>
-        <li><a href="<?php echo home_url('/contact'); ?>">CONTACT</a></li>
+    <nav class="header-content-menu font-accent">
+      <ul class="flex items-center justify-between gap-8">
+        {
+          links.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="before:border-b-accent before:ease-out-expo relative flex items-center gap-1 px-[0.3em] text-[1.6rem] font-semibold tracking-[0.126em] text-white ease-in-out before:absolute before:-bottom-[0.6rem] before:left-0 before:block before:w-full before:origin-bottom-right before:scale-x-0 before:border-b-[0.2rem] before:transition before:duration-700 hover:before:origin-bottom-left hover:before:scale-x-100"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </nav>
   </div>
@@ -15,14 +36,23 @@
     <input id="nav-input" type="checkbox" class="nav-unshown" />
     <label id="nav-open" for="nav-input"><span></span></label>
     <label class="nav-unshown" id="nav-close" for="nav-input"></label>
-    <h1 class="header-content-logo robot">
-      <a href="<?php echo home_url('/'); ?>">RYOMA ARIMURA</a>
+    <h1 class="float-left font-accent text-[1.2rem]">
+      <a href="/">RYOMA ARIMURA</a>
     </h1>
     <div id="nav-content">
-      <ul class="robot">
-        <li><a href="/#about">ABOUT</a></li>
-        <li><a href="<?php echo home_url('/blog'); ?>">BLOG</a></li>
-        <li><a href="<?php echo home_url('/contact'); ?>">CONTACT</a></li>
+      <ul class="font-accent">
+        {
+          links.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                class="before:border-b-accent before:ease-out-expo relative flex items-center gap-1 px-[0.3em] text-[1.6rem] font-semibold tracking-[0.126em] text-white ease-in-out before:absolute before:-bottom-[0.6rem] before:left-0 before:block before:w-full before:origin-bottom-right before:scale-x-0 before:border-b-[0.2rem] before:transition before:duration-700 hover:before:origin-bottom-left hover:before:scale-x-100"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
       </ul>
     </div>
   </div>

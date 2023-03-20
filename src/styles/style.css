@@ -175,16 +175,16 @@ select {
 }
 
 /* Scss Document */
-html {
+/* html {
   font-size: 62.5%;
-}
+} */
 
-body {
+/* body {
   font-size: 1.6rem;
   color: #5b5c5c;
   background-repeat: no-repeat;
   font-family: "Noto Sans JP", sans-serif;
-}
+} */
 
 .robot {
   font-family: "Roboto", sans-serif;
@@ -216,22 +216,22 @@ body {
   display: block;
 }
 
-ul {
+/* ul {
   list-style: none;
 }
 
 img {
   width: 100%;
   height: auto;
-}
+} */
 
-a {
+/* a {
   text-decoration: none;
-}
+} */
 
-a:hover {
+/* a:hover {
   opacity: 0.8;
-}
+} */
 
 /* Scss Document */
 /* Scss Document */
@@ -268,7 +268,7 @@ a:hover {
 
 /* Scss Document */
 /*ここからtoppageheader*/
-.header {
+/* .header {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -279,48 +279,43 @@ a:hover {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
+} */
 
-.header-content {
+/* .header-content {
   width: 86%;
   margin: 0 auto;
   padding: 4rem 0;
   display: block;
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .header-content {
     display: none;
   }
-}
+} */
 
-.header-content:after {
+/* .header-content:after {
   content: "";
   display: block;
   clear: both;
-}
+} */
 
-.header-content-logo {
+/* .header-content-logo {
   float: left;
-}
+} */
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .header-content-logo {
     font-size: 1.2rem;
   }
-}
+} */
 
-.header-content-logo a {
+/* .header-content-logo a {
   text-decoration: none;
   color: #ffffff;
-}
+} */
 
-.header-content-menu {
-  color: #fff;
-  float: right;
-}
-
-.header-content-menu ul {
+/* .header-content-menu ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -331,19 +326,19 @@ a:hover {
   -ms-flex-align: center;
   align-items: center;
   width: 40rem;
-}
+} */
 
-.header-content-menu ul li {
+/* .header-content-menu ul li {
   text-decoration: none;
   margin-left: 0;
   display: block;
-}
+} */
 
-.header-content-menu ul li:hover:after {
+/* .header-content-menu ul li:hover:after {
   width: 100%;
-}
+} */
 
-.header-content-menu ul li a {
+/* .header-content-menu ul li a {
   letter-spacing: 0.126em;
   color: #ffffff;
   font-size: 1.6rem;
@@ -354,9 +349,9 @@ a:hover {
   opacity: 1;
   -webkit-transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
   transition: opacity 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
-}
+} */
 
-.header-content-menu ul li a:after {
+/* .header-content-menu ul li a:after {
   --scale: 0;
   content: "";
   position: absolute;
@@ -374,25 +369,25 @@ a:hover {
   transition: transform 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
   transition: transform 0.3s cubic-bezier(0.51, 0.92, 0.24, 1),
     -webkit-transform 0.3s cubic-bezier(0.51, 0.92, 0.24, 1);
-}
+} */
 
-.header-content-menu ul li a:hover {
+/* .header-content-menu ul li a:hover {
   opacity: 0.7;
-}
+} */
 
-.header-content-menu ul li a:hover:after {
+/* .header-content-menu ul li a:hover:after {
   --scale: 1;
-}
+} */
 
 /*ここからハンガーガーメニュー*/
-header {
+/* header {
   padding: 10px;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   background-color: #1d2426;
-}
+} */
 
 .nav-drawer {
   position: relative;
