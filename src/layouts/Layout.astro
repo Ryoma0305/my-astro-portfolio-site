@@ -1,6 +1,7 @@
 ---
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
+import HamburgerMenu from "../components/common/HamburgerMenu.astro";
 import type { LinkType } from "../types/types";
 import "../styles/style.css";
 
@@ -49,7 +50,7 @@ const {
       " [&.is-spMenuOpened]:overflow-hidden text-[1.6rem] text-[5b5c5c] bg-no-repeat"}
   >
     <Header links={links} />
-    <!-- <HamburgerMenu links={links} path={Astro.url.pathname} /> -->
+    <HamburgerMenu links={links} path={Astro.url.pathname} />
     <slot />
     <Footer links={links} />
 

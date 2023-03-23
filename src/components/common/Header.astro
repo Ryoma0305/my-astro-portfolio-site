@@ -6,10 +6,10 @@ interface Props {
 const { links } = Astro.props;
 ---
 
-<header class="absolute top-0 right-0 left-0 bg-main p-[10px] text-white">
-  <div
-    class="mx-auto hidden w-[86%] py-16 after:clear-both after:block sm:flex sm:justify-between"
-  >
+<header
+  class="absolute top-0 right-0 left-0 z-10 hidden bg-main p-[10px] text-white sm:block"
+>
+  <div class="mx-auto hidden w-[86%] py-16 sm:flex sm:justify-between">
     <h1 class="font-accent text-[1.6rem] font-bold">
       <a href="/" class="duration-300 ease-in-out hover:opacity-60"
         >RYOMA ARIMURA</a

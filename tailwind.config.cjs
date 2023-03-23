@@ -20,7 +20,7 @@ module.exports = {
       colors: {
         main: "#1d2426",
         accent: "#ddbc36",
-        white: "#FFFFFF",
+        white: "#ffffff",
         black: "#141515",
       },
       transitionTimingFunction: {
@@ -37,11 +37,7 @@ module.exports = {
         },
       },
       animation: {
-        // circlemove:
-        //   "circlemove 1.6s ease-in-out infinite, cirlemovehide 1.6s ease-out infinite",
-        // skewanimeIn: "skewanimeIn 0.5s forwards",
-        // skewanimeOut: "skewanimeOut 0.5s forwards",
-        // slide: "slide 3s ease-in-out infinite alternate",
+        sdb: "sdb 1.5s infinite",
       },
     },
   },
