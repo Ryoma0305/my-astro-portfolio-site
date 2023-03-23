@@ -1,19 +1,14 @@
 ---
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
+import HamburgerMenu from "../components/common/HamburgerMenu.astro";
 import type { LinkType } from "../types/types";
 import "../styles/style.css";
 
 const links: LinkType[] = [
-  { href: "/services/", label: "業務内容", externalLink: false },
-  { href: "/about/", label: "会社情報", externalLink: false },
-  { href: "/recruit/", label: "求人情報", externalLink: false },
-  { href: "/news/", label: "お知らせ", externalLink: false },
-  {
-    href: "https://www.to-r.net/media/",
-    label: "to-R Media",
-    externalLink: true,
-  },
+  { href: "/#about", label: "ABOUT" },
+  { href: "/blogs/", label: "BLOG" },
+  { href: "/recruit/", label: "CONTACT" },
 ];
 
 export interface Props {
@@ -32,7 +27,7 @@ const {
 ---
 
 <!DOCTYPE html>
-<html lang="ja" class="antialiased">
+<html lang="ja" class="text-[62.5%] antialiased">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
@@ -50,9 +45,12 @@ const {
   />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
   ></script>
-  <body class={wrapperClass + " [&.is-spMenuOpened]:overflow-hidden"}>
+  <body
+    class={wrapperClass +
+      " [&.is-spMenuOpened]:overflow-hidden text-[1.6rem] text-[5b5c5c] bg-no-repeat"}
+  >
     <Header links={links} />
-    <!-- <HamburgerMenu links={links} path={Astro.url.pathname} /> -->
+    <HamburgerMenu links={links} path={Astro.url.pathname} />
     <slot />
     <Footer links={links} />
 
