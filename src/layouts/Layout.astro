@@ -1,19 +1,14 @@
 ---
 import Header from "../components/common/Header.astro";
 import Footer from "../components/common/Footer.astro";
+import HamburgerMenu from "../components/common/HamburgerMenu.astro";
 import type { LinkType } from "../types/types";
 import "../styles/style.css";
 
 const links: LinkType[] = [
-  { href: "/services/", label: "業務内容", externalLink: false },
-  { href: "/about/", label: "会社情報", externalLink: false },
-  { href: "/recruit/", label: "求人情報", externalLink: false },
-  { href: "/news/", label: "お知らせ", externalLink: false },
-  {
-    href: "https://www.to-r.net/media/",
-    label: "to-R Media",
-    externalLink: true,
-  },
+  { href: "/#about", label: "ABOUT" },
+  { href: "/blogs/", label: "BLOG" },
+  { href: "/recruit/", label: "CONTACT" },
 ];
 
 export interface Props {
@@ -32,52 +27,75 @@ const {
 ---
 
 <!DOCTYPE html>
-<html lang="ja" class="antialiased">
+<html
+  lang="ja"
+  class="invisible text-[62.5%] antialiased [scroll-behavior:smooth] [&.loading-delay]:visible [&.wf-active]:visible"
+>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{title}</title>
+  <script>
+    (function (d) {
+      var config = {
+          kitId: "ony8ltb",
+          scriptTimeout: 3000,
+          async: true,
+        },
+        h = d.documentElement,
+        t = setTimeout(function () {
+          h.className =
+            h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+        }, config.scriptTimeout),
+        tk = d.createElement("script"),
+        f = false,
+        s = d.getElementsByTagName("script")[0],
+        a;
+      h.className += " wf-loading";
+      tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+      tk.async = true;
+      tk.onload = tk.onratechange = function () {
+        //@ts-ignore
+        a = this.readyState;
+        if (f || (a && a != "complete" && a != "loaded")) return;
+        f = true;
+        clearTimeout(t);
+        try {
+          //@ts-ignore
+          Typekit.load(config);
+        } catch (e) {}
+      };
+      //@ts-ignore
+      s.parentNode.insertBefore(tk, s);
+    })(document);
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;900&display=swap"
     rel="stylesheet"
   />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.11.0/css/all.css"
-  />
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"
-  ></script>
-  <body class={wrapperClass + " [&.is-spMenuOpened]:overflow-hidden"}>
+
+  <body
+    class={wrapperClass +
+      " [&.is-spMenuOpened]:overflow-hidden text-[1.6rem] text-[5b5c5c] bg-no-repeat"}
+  >
     <Header links={links} />
-    <!-- <HamburgerMenu links={links} path={Astro.url.pathname} /> -->
+    <HamburgerMenu links={links} path={Astro.url.pathname} />
     <slot />
     <Footer links={links} />
 
-    <!-- <script>
-    // 3秒経ってもWebフォントがロードできない場合にloading-delayクラスを追加してページを表示させる
-    // 参照元：https://michimani.net/post/development-remove-web-fonts-fout/
+    <script>
+      // 3秒経ってもWebフォントがロードできない場合にloading-delayクラスを追加してページを表示させる
+      // 参照元：https://michimani.net/post/development-remove-web-fonts-fout/
 
-    const htmlElement = document.getElementsByTagName("html")[0] as HTMLElement;
-    setTimeout(() => {
-      if (!htmlElement.classList.contains("wf-active")) {
-        htmlElement.classList.add("loading-delay");
-      }
-    }, 3000);
-  </script> -->
-
-    <!-- <script>
-    //一定量スクロールされたらis-scrolledクラスを付与
-    const bodyElement = document.querySelector("body") as HTMLElement;
-    window.addEventListener("scroll", () => {
-      if (window.pageYOffset > 100) {
-        bodyElement.classList.add("is-scrolled");
-      } else {
-        bodyElement.classList.remove("is-scrolled");
-      }
-    });
-  </script> -->
+      const htmlElement = document.getElementsByTagName(
+        "html"
+      )[0] as HTMLElement;
+      setTimeout(() => {
+        if (!htmlElement.classList.contains("wf-active")) {
+          htmlElement.classList.add("loading-delay");
+        }
+      }, 3000);
+    </script>
   </body>
 </html>

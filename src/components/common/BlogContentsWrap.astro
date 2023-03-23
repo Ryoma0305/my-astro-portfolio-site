@@ -1,0 +1,28 @@
+<div>
+  <slot />
+</div>
+
+<style>
+  div :global(> *:first-child) {
+    @apply mt-0;
+  }
+  div :global(h2) {
+    @apply mb-16 text-[2.8rem];
+  }
+  div :global(h3) {
+    @apply mb-16 text-[2.4rem];
+  }
+  div :global(h4) {
+    @apply mb-12 text-[2.2rem];
+  }
+  div :global(p) {
+    @apply mb-12 text-[1.6rem] leading-[1.6];
+  }
+  div :global(p:first-of-type) {
+    @apply mb-16;
+  }
+
+  div :global(.wp-block-code) {
+    @apply my-8 overflow-y-scroll bg-black p-6 text-white;
+  }
+</style>

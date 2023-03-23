@@ -3,6 +3,8 @@ import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 
 import Layout from "../../layouts/Layout.astro";
 import PageHeader from "../../components/common/pageHeader.astro";
+import BlogContentsWrap from "../../components/common/BlogContentsWrap.astro";
+import Button from "../../components/common/Button.astro";
 import DetailPagePagination from "../../components/common/DetailPagePagination.astro";
 import { BlogsQuery } from "../../libraries/wordpress";
 
@@ -26,18 +28,25 @@ const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
 <Layout>
   <PageHeader title={"BLOG"} />
   <main id="main">
-    <section class="blog-singlepage blog inner">
-      <div
-        class="blog-singlepage-content notosans"
-        set:html={post.content.rendered}
+    <section
+      class="blog-singlepage blog mx-auto mb-[9.6rem] w-[86%] py-[12vw] sm:py-20"
+    >
+      <BlogContentsWrap>
+        <div
+          class="blog-singlepage-content mx-auto w-full leading-[1.5] sm:w-[70%]"
+          set:html={post.content.rendered}
+        />
+      </BlogContentsWrap>
+      <DetailPagePagination
+        prevSlug={prevSlug}
+        nextSlug={nextSlug}
+        slug={"blogs"}
+        prevText="前の記事へ"
+        nextText="次の記事へ"
       />
+      <p class="mt-10 flex items-center justify-center xs:mt-16">
+        <Button href="/blogs/" label="BLOG一覧へ" icon="left" />
+      </p>
     </section>
-    <DetailPagePagination
-      prevSlug={prevSlug}
-      nextSlug={nextSlug}
-      slug={"blogs"}
-      prevText="前の記事へ"
-      nextText="次の記事へ"
-    />
   </main>
 </Layout>

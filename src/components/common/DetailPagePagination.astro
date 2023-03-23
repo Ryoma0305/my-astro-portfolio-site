@@ -10,15 +10,15 @@ const { prevSlug, nextSlug, slug, prevText, nextText } = Astro.props;
 ---
 
 <div
-  class="relative mt-10 h-6 text-sm leading-normal tracking-widest text-black xs:mt-16 xs:h-10 xs:text-base"
+  class="relative mt-10 h-6 text-[1.6rem] leading-normal tracking-widest text-black xs:mt-16 xs:h-10 xs:text-base"
 >
   {
     prevSlug && (
-      <div class="ease-out-expo xs:min-h-[2.5rem] xs:bg-[length:40px_40px] xs:duration-500 xs:hover:opacity-80 absolute top-0 left-0 flex min-h-[1.5rem] items-center bg-[url('/images/common/icon_paging_previous.svg')] bg-[length:24px_24px] bg-left-top bg-no-repeat transition-opacity">
+      <div class="ease-out-expo xs:min-h-[4rem] xs:bg-[length:40px_40px] xs:duration-500 xs:hover:opacity-80 absolute top-0 left-0 flex min-h-[1.5rem] items-center bg-[url('/images/common/icon_paging_previous.svg')] bg-[length:24px_24px] bg-left-top bg-no-repeat transition-opacity">
         <a
           href={"/" + slug + "/" + prevSlug + "/"}
           rel="prev"
-          class="xs:pl-[3.2rem] xs:tracking-normal flex flex-col gap-2 pl-8 tracking-normal"
+          class="xs:pl-20 xs:tracking-normal flex flex-col gap-2 pl-8 text-[1.6rem] tracking-normal"
         >
           <span>{prevText}</span>
         </a>
@@ -27,11 +27,11 @@ const { prevSlug, nextSlug, slug, prevText, nextText } = Astro.props;
   }
   {
     nextSlug && (
-      <div class="ease-out-expo xs:min-h-[2.5rem] xs:bg-[length:40px_40px] xs:duration-500 xs:hover:opacity-80 absolute top-0 right-0 flex min-h-[1.5rem] items-center bg-[url('/images/common/icon_paging_next.svg')] bg-[length:24px_24px] bg-right-top bg-no-repeat text-right transition-opacity">
+      <div class="ease-out-expo xs:min-h-[4rem] xs:bg-[length:40px_40px] xs:duration-500 xs:hover:opacity-80 absolute top-0 right-0 flex min-h-[1.5rem] items-center bg-[url('/images/common/icon_paging_next.svg')] bg-[length:24px_24px] bg-right-top bg-no-repeat text-right transition-opacity">
         <a
           href={"/" + slug + "/" + nextSlug + "/"}
           rel="next"
-          class="xs:pr-[3.2rem] xs:tracking-normal flex flex-col gap-2 pr-8 tracking-normal"
+          class="xs:pr-20 xs:tracking-normal flex flex-col gap-2 pr-8 text-[1.6rem] tracking-normal"
         >
           <span>{nextText}</span>
         </a>

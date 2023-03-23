@@ -1,0 +1,91 @@
+---
+interface Props {
+  Component?: keyof HTMLElementTagNameMap;
+  href?: string;
+  label: string;
+  icon?: "left" | "right" | "external";
+  desktopSize?: "sm" | "lg";
+  mobileSize?: "sm" | "lg";
+  color?: "black" | "white" | "black_corporate";
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
+  id?: string;
+  type?: "button" | "submit" | "reset";
+  variant?: "outline" | "cta";
+}
+import { Icon } from "astro-icon";
+const Component = Astro.props.href ? "a" : "button";
+
+const {
+  href,
+  label,
+  icon,
+  desktopSize = "lg",
+  mobileSize = "sm",
+  color = "black",
+  target,
+  rel,
+  id,
+  type,
+  variant = "outline",
+} = Astro.props;
+---
+
+{
+  variant === "outline" ? (
+    <Component
+      class:list={[
+        "inline-flex items-center gap-2 border rounded-full font-bold transition-colors ease-out-expo duration-500",
+        {
+          "text-white border-white hover:text-black hover:bg-white":
+            color === "white",
+        },
+        {
+          "text-black border-black hover:text-white hover:bg-black":
+            color === "black",
+        },
+        {
+          "text-black border-black hover:border-accent hover:text-white hover:bg-accent":
+            color === "black_corporate",
+        },
+        {
+          "max-md:px-[39px] max-md:py-[15px] max-md:text-[1.6rem]":
+            mobileSize === "sm",
+        },
+        {
+          "max-md:px-[47px] max-md:py-[19px] max-md:text-[2rem]":
+            mobileSize === "lg",
+        },
+        { "md:px-[39px] md:py-[15px] md:text-[1.6rem]": desktopSize === "sm" },
+        { "md:px-[47px] md:py-[19px] md:text-[2rem]": desktopSize === "lg" },
+      ]}
+      href={href}
+      target={target}
+      rel={rel}
+      id={id}
+      type={type}
+    >
+      {icon === "left" && <Icon class="-ml-4" name="arrow_left" size="24" />}
+      {label}
+      {icon === "right" && <Icon class="-mr-4" name="arrow_right" size="24" />}
+      {icon === "external" && <Icon class="-mr-4" name="external" size="24" />}
+    </Component>
+  ) : (
+    <Component
+      class="ease-out-expo hover:border-accent hover:bg-accent relative inline-flex min-w-[min(420px,100%)] items-center justify-center rounded-full border border-black bg-black pb-[26px] pt-[22px] text-[1.25rem] font-bold text-white transition-colors duration-500 hover:text-white md:pt-8 md:pb-10 md:text-[2rem]"
+      href={href}
+      target={target}
+      rel={rel}
+      id={id}
+      type={type}
+    >
+      {label}
+      {icon === "right" && (
+        <Icon
+          class="absolute top-1/2 right-6 h-6 w-6 -translate-y-1/2 md:right-8 md:h-8 md:w-8"
+          name="arrow_right_cta"
+        />
+      )}
+    </Component>
+  )
+}

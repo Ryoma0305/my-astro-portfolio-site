@@ -1,10 +1,21 @@
-<footer class="footer" id="footer">
-  <p class="notosans footer-text">制作の依頼、ご相談お気軽にご連絡下さい。</p>
-  <p class="button-container robot">
-    <a href="<?php echo home_url('/contact'); ?>" class="button button-footer"
-      >CONTACT</a
+---
+import Button from "../../components/common/Button.astro";
+---
+
+<footer
+  class="footer box-border flex h-[44rem] flex-col items-center justify-center bg-main"
+  id="footer"
+>
+  <div>
+    <p
+      class="footer-text mb-16 text-center text-[1.4rem] font-bold text-white sm:text-[2.4rem]"
     >
-  </p>
+      制作の依頼、ご相談お気軽にご連絡下さい。
+    </p>
+    <p class="mt-14 flex items-center justify-center px-5 sm:mt-16">
+      <Button href="/contact/" icon="right" label="CONTACT" variant="cta" />
+    </p>
+  </div>
 </footer>
 <!-- <script>
   jQuery(function ($) {
