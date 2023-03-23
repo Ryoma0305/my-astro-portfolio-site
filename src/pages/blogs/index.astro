@@ -11,17 +11,18 @@ const posts = await BlogsQuery();
 <Layout>
   <PageHeader title={"BLOG"} />
   <main id="main">
-    <section class="blog-archive blog">
-      <div class="blog-archive-container">
-        <ul class="blog-content">
+    <section class="blog-archive blog mx-auto w-[86%] sm:w-[70%]">
+      <div class="blog-archive-container w-full">
+        <ul class="blog-content mt-10 sm:grid sm:grid-cols-2 sm:gap-12">
           {
             posts.map((post: any) => (
-              <li class="relative">
+              <li class="relative mb-32">
                 {post._embedded["wp:featuredmedia"] && (
-                  <figure class="blog-image">
+                  <figure class="blog-image h-[16vw]">
                     <img
                       src={post._embedded["wp:featuredmedia"]["0"].source_url}
                       alt={post.title.rendered}
+                      class="h-full w-full object-cover"
                     />
                   </figure>
                 )}
