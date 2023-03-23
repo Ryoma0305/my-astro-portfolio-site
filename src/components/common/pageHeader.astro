@@ -5,8 +5,16 @@ interface Props {
 const { title } = Astro.props;
 ---
 
-<div class="header-main haeder-main-lowerpage">
-  <div class="header-main-text haeder-main-lowerpage-content">
-    <h2 class="robot haeder-main-lowerpage-content-ttl">{title}</h2>
+<div
+  class="header-main haeder-main-lowerpage relative mt-[5.6rem] mb-4 flex items-center justify-center bg-main py-16 sm:mb-40"
+>
+  <div
+    class="header-main-text haeder-main-lowerpage-content flex w-[86%] flex-col items-center pt-32 pb-40 text-white sm:flex-row"
+  >
+    <h2
+      class="haeder-main-lowerpage-content-ttl boder-b-white mb-8 mr-0 border-b-[4px] pb-4 font-accent text-[5.6rem] sm:mr-96 sm:mb-0"
+    >
+      {title}
+    </h2>
   </div>
 </div>

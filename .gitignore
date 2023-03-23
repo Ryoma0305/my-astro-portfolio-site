@@ -21,3 +21,4 @@ pnpm-debug.log*
 .DS_Store
 
 my-astro-portfolio-site-workspace.code-workspace
+.vercel
