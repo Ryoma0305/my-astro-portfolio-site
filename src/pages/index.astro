@@ -2,41 +2,85 @@
 import Swiper from "../components/Swiper.astro";
 import Blog from "../components/top/Blog.astro";
 import Layout from "../layouts/Layout.astro";
-import Slider from "../components/Slider";
+
+type SkillType = {
+  name: string;
+  image: string;
+};
+
+const skills: SkillType[] = [
+  { name: "HTML5", image: "/images/html.png" },
+  { name: "CSS3", image: "/images/css.png" },
+  { name: "JavaScript", image: "/images/js.png" },
+  { name: "jQuery", image: "/images/jquery.png" },
+  { name: "Sass", image: "/images/sass.png" },
+  { name: "PHP", image: "/images/php.png" },
+  { name: "GitHub", image: "/images/github.png" },
+  { name: "WordPress", image: "/images/wordpress.png" },
+];
 ---
 
 <Layout>
-  <section class="mainvisual">
-    <div class="header-main">
-      <div class="header-main-text">
-        <h2 class="robot mainvisual-ttl">
-          WELCOME<span>TO THE</span><span>WORLD OF</span><span
-            >ARIMURA RYOMA</span
-          >
+  <section class="mainvisual bg-main bg-center bg-no-repeat pt-[80px]">
+    <div
+      class="header-main relative mt-[5.6rem] mb-[1rem] flex flex-nowrap items-center justify-center sm:mt-[56px] sm:mb-0"
+    >
+      <div class="header-main-text w-[86%] text-white">
+        <h2
+          class="mainvisual-ttl font-accent text-[4rem] leading-[1.2] after:mt-4 after:mb-4 after:block after:h-[4px] after:w-[80%] after:bg-accent sm:text-[6rem] sm:after:w-[50%]"
+        >
+          WELCOME<span class="block">TO THE</span><span class="block"
+            >WORLD OF</span
+          ><span class="block">ARIMURA RYOMA</span>
         </h2>
-        <p class="robot mainvisual-text">
-          I'm Ryoma <span>a web developer</span> based in Osaka, Japan.
+        <p
+          class="mainvisual-text font-accent text-[2rem] leading-[1.4] sm:text-[3rem]"
+        >
+          I'm Ryoma <span class="block">a web developer</span> based in Osaka, Japan.
         </p>
       </div>
     </div>
-    <div class="scroll-arrow-wrap">
-      <a href="#about" class="scroll-arrow"><span></span>Scroll</a>
+    <div class="scroll-arrow-wrap pb-16 text-center sm:pb-10">
+      <a
+        href="#about"
+        class="scroll-arrow relative inline-block pt-[70px] text-white"
+        ><span
+          class="absolute top-0 left-1/2 -ml-3 box-border h-6 w-6 -rotate-45 animate-sdb border-l border-b border-b-white border-l-white"
+        ></span>Scroll</a
+      >
     </div>
   </section>
   <main id="main">
-    <section class="profile inner" id="about">
-      <div class="ttl section-ttl">
-        <h2 class="robot ttl-text1">ABOUT ME</h2>
-        <p class="ttl-text2 notosans">Who I am</p>
+    <section
+      class="profile inner mx-[calc(50%_-_50vw)] w-screen bg-[#f8f8f8] py-32 sm:py-[160px]"
+      id="about"
+    >
+      <div
+        class="ttl section-ttl mb-24 flex flex-col items-center justify-center font-bold"
+      >
+        <h2
+          class="ttl-text1 font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
+        >
+          ABOUT ME
+        </h2>
+        <p class="ttl-text2 mt-4 text-[1.6rem]">Who I am</p>
       </div>
 
-      <div class="profile-content">
-        <p class="profile-content-image">
+      <div
+        class="profile-content mx-auto w-[86%] justify-center sm:flex sm:w-auto"
+      >
+        <p
+          class="profile-content-image mx-auto mb-[1.6rem] w-1/2 sm:mx-0 sm:mr-16 sm:mb-0 sm:w-[15%]"
+        >
           <img src="/images/ico_ryoma.jpg" alt="" />
         </p>
-        <div class="profile-content-box">
-          <h2 class="profile-content-box-ttl robot">Arimura Ryoma</h2>
-          <div class="profile-content-box-text notosans">
+        <div class="profile-content-box w-full sm:w-2/5">
+          <h2
+            class="profile-content-box-ttl mb-8 text-center font-accent text-[2rem] sm:text-left"
+          >
+            Arimura Ryoma
+          </h2>
+          <div class="profile-content-box-text text-[1.4rem] leading-[1.6]">
             <p>
               大阪出身、１９９１年生まれの２９歳。<br />
               Web制作、コーディングが大好きです。Web制作に出会い、これからの人生で本当にやりたいことを見つけられたと思っています。<br
@@ -49,68 +93,35 @@ import Slider from "../components/Slider";
         </div>
       </div>
     </section>
-    <section class="skill">
-      <div class="ttl inner">
-        <div class="ttl section-ttl">
-          <h2 class="robot ttl-text1">SKILLS</h2>
-          <p class="ttl-text2 notosans">What I do</p>
+    <section class="skill bg-[f8f8f8] py-[12vw] sm:py-20">
+      <div class="ttl inner font-bold">
+        <div
+          class="ttl section-ttl mb-24 flex flex-col items-center justify-center font-bold"
+        >
+          <h2
+            class="ttl-text1 font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
+          >
+            SKILLS
+          </h2>
+          <p class="ttl-text2 mt-4 text-[1.6rem]">What I do</p>
         </div>
       </div>
       <div class="skill-wrapper">
-        <ul class="skill-box inner">
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/html.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">HTML5</p>
-          </li>
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/css.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">CSS3</p>
-          </li>
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/js.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">JavaScript</p>
-          </li>
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/jquery.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">jQuery</p>
-          </li>
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/sass.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">Sass</p>
-          </li>
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/php.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">PHP</p>
-          </li>
-          <!-- <li class="skill-box-content">
-							<p class="skill-box-content-image"><img
-										src="/images/laravel.png" alt=""></p>
-							<p class="skill-box-content-ttl">Laravel</p>
-						</li> -->
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/github.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">GitHub</p>
-          </li>
-          <li class="skill-box-content">
-            <p class="skill-box-content-image">
-              <img src="/images/wordpress.png" alt="" />
-            </p>
-            <p class="skill-box-content-ttl">WordPress</p>
-          </li>
+        <ul
+          class="skill-box inner flex flex-wrap justify-between before:order-1 before:block before:w-[24%] after:block after:w-[24%]"
+        >
+          {
+            skills.map((item) => (
+              <li class="skill-box-content mb-32 flex w-[48%] flex-col items-center justify-start text-[1.6rem] tracking-widest sm:w-[24%]">
+                <p class="skill-box-content-image mx-auto mb-8 w-32">
+                  <img src={item.image} alt={item.name} />
+                </p>
+                <p class="skill-box-content-ttl mb-8 text-center">
+                  {item.name}
+                </p>
+              </li>
+            ))
+          }
         </ul>
       </div>
     </section>

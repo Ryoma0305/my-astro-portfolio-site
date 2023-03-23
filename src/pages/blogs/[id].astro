@@ -3,6 +3,7 @@ import type { InferGetStaticParamsType, InferGetStaticPropsType } from "astro";
 
 import Layout from "../../layouts/Layout.astro";
 import PageHeader from "../../components/common/pageHeader.astro";
+import BlogContentsWrap from "../../components/common/BlogContentsWrap.astro";
 import DetailPagePagination from "../../components/common/DetailPagePagination.astro";
 import { BlogsQuery } from "../../libraries/wordpress";
 
@@ -26,11 +27,15 @@ const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
 <Layout>
   <PageHeader title={"BLOG"} />
   <main id="main">
-    <section class="blog-singlepage blog inner">
-      <div
-        class="blog-singlepage-content notosans"
-        set:html={post.content.rendered}
-      />
+    <section
+      class="blog-singlepage blog mx-auto mb-[9.6rem] w-[86%] justify-between py-[12vw] sm:flex sm:py-20"
+    >
+      <BlogContentsWrap>
+        <div
+          class="blog-singlepage-content mx-auto w-full leading-[1.5] sm:w-[70%]"
+          set:html={post.content.rendered}
+        />
+      </BlogContentsWrap>
     </section>
     <DetailPagePagination
       prevSlug={prevSlug}
