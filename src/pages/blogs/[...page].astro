@@ -20,37 +20,42 @@ const { page } = Astro.props;
   <main id="main">
     <section class="blog-archive blog mx-auto w-[86%] sm:w-[70%]">
       <div class="blog-archive-container w-full">
-        <ul class="blog-content mt-10 sm:grid sm:grid-cols-2 sm:gap-12">
+        <ul
+          class="blog-content mx-auto mb-32 mt-10 flex w-[86%] flex-col justify-between gap-32 sm:grid sm:grid-cols-2 sm:gap-8"
+        >
           {
             page.data.map((post: any) => (
-              <li class="relative">
-                {post._embedded["wp:featuredmedia"] && (
-                  <figure class="blog-image h-[16vw]">
-                    <img
-                      src={post._embedded["wp:featuredmedia"]["0"].source_url}
-                      alt={post.title.rendered}
-                      class="h-full w-full object-cover"
-                    />
-                  </figure>
-                )}
-
-                <dl class="notosans">
-                  <dt>
-                    <a href="" set:html={post.title.rendered} />
-                  </dt>
-                  <dd>
+              <li class="relative flex flex-col sm:mb-32">
+                <figure class="blog-image mb-[1.6rem] h-[48vw] sm:h-[16vw]">
+                  <img
+                    src={post._embedded["wp:featuredmedia"]["0"].source_url}
+                    alt={post.title.rendered}
+                    class="h-full w-full object-cover"
+                  />
+                </figure>
+                <div class="notosans">
+                  <h2 class="mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
                     <a
                       href=""
-                      set:html={post.excerpt.rendered.replace("[&hellip;]", "")}
+                      class="text-[646464]"
+                      set:html={post.title.rendered}
                     />
-                  </dd>
-                </dl>
-                <a
-                  href={"/blogs/" + post.id + ""}
-                  class="viewmore before:absolute before:inset-0"
-                >
-                  view more
-                </a>
+                  </h2>
+                  <div
+                    class="mb-8 pb-8 text-[1.6rem] leading-[1.5] text-[646464] [&_a]:text-[646464]"
+                    set:html={post.excerpt.rendered.replace("[&hellip;]", "")}
+                  />
+                </div>
+                <p class="viewmore group mt-auto">
+                  <a
+                    href={"/blogs/" + post.id + "/"}
+                    class="px-[0.6rem] text-[#646464] before:absolute before:inset-0"
+                  >
+                    <span class="relative transition duration-300 ease-in-out before:absolute before:-bottom-[0.6rem] before:left-0 before:block before:w-full before:origin-bottom-right before:scale-x-0 before:border-b-[0.2rem] before:border-b-black before:transition before:duration-700 group-hover:before:origin-bottom-left group-hover:before:scale-x-100">
+                      view more
+                    </span>
+                  </a>
+                </p>
               </li>
             ))
           }
