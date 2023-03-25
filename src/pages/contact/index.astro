@@ -1,0 +1,29 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Button from "../../components/common/Button.astro";
+import PageHeader from "../../components/common/pageHeader.astro";
+---
+
+<Layout wrapperClass="p-thanks-wrapper">
+  <main class="bg-gray-100">
+    <div>
+      <PageHeader title={"CONTACT"} />
+      <div
+        class="mx-auto max-w-[1284px] px-6 pt-[2.9rem] pb-16 text-black xs:px-5 xs:pt-20 xs:pb-[7.5rem]"
+      >
+        <div class="xs:mx-auto md:w-[50.5rem]">
+          <div
+            class="border-brand mt-[1.875rem] border-2 bg-white py-4 xs:mx-auto xs:max-w-[58.125rem] xs:py-8"
+          >
+            <h1 class="text-center text-lg font-bold xs:text-[1.75rem]">
+              Coming soon ...
+            </h1>
+          </div>
+          <p class="mt-10 flex items-center justify-center xs:mt-32">
+            <Button href="/" icon="left" label="トップページへ戻る" />
+          </p>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
