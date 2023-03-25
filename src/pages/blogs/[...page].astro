@@ -5,7 +5,7 @@ import Layout from "../../layouts/Layout.astro";
 import PageHeader from "../../components/common/pageHeader.astro";
 import Pagination from "../../components/blogs/Pagination.astro";
 import { BlogsQuery } from "../../libraries/wordpress";
-// import { formattedDate } from "../../utility/formattedDate.js";
+import { formattedDate } from "../../utility/formattedDate.js";
 
 export const getStaticPaths = async ({ paginate }: GetStaticPathsOptions) => {
   const post = await BlogsQuery();
@@ -33,8 +33,14 @@ const { page } = Astro.props;
                     class="h-full w-full object-cover"
                   />
                 </figure>
-                <div class="notosans">
-                  <h2 class="mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
+                <div>
+                  <time
+                    datetime={new Date(post.date).toISOString()}
+                    class="inline-block text-[1.6rem] text-gray-600"
+                  >
+                    {formattedDate(new Date(post.date))}
+                  </time>
+                  <h2 class="mt-[2rem] mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
                     <a
                       href=""
                       class="text-[646464]"

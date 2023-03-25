@@ -2,6 +2,8 @@
 import { BlogsQuery } from "../../libraries/wordpress";
 
 import Button from "../../components/common/Button.astro";
+import { formattedDate } from "../../utility/formattedDate.js";
+
 const data = await BlogsQuery();
 ---
 
@@ -31,8 +33,14 @@ const data = await BlogsQuery();
               class="h-full w-full object-cover"
             />
           </figure>
-          <div class="notosans">
-            <h2 class="mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
+          <div>
+            <time
+              datetime={new Date(post.date).toISOString()}
+              class="inline-block text-[1.6rem] text-gray-600"
+            >
+              {formattedDate(new Date(post.date))}
+            </time>
+            <h2 class="mt-[2rem] mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
               <a href="" class="text-[646464]" set:html={post.title.rendered} />
             </h2>
             <div

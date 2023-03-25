@@ -7,6 +7,7 @@ import BlogContentsWrap from "../../components/common/BlogContentsWrap.astro";
 import Button from "../../components/common/Button.astro";
 import DetailPagePagination from "../../components/common/DetailPagePagination.astro";
 import { BlogsQuery } from "../../libraries/wordpress";
+import { formattedDate } from "../../utility/formattedDate.js";
 
 export async function getStaticPaths() {
   let posts = await BlogsQuery();
@@ -29,11 +30,30 @@ const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
   <PageHeader title={"BLOG"} />
   <main id="main">
     <section
-      class="blog-singlepage blog mx-auto mb-[9.6rem] w-[86%] py-[12vw] sm:py-20"
+      class="blog-singlepage blog mx-auto mb-[9.6rem] py-[12vw] px-16 sm:w-[70%] sm:px-0 sm:py-20"
     >
+      <header class="pb-20 leading-[1.5]">
+        <h1
+          class="text-[2.4rem] font-bold leading-[1.6] xs:mt-5"
+          set:html={post.title.rendered}
+        />
+
+        <time
+          datetime={new Date(post.date).toISOString()}
+          class="mt-2 inline-block text-[1.6rem] text-gray-600 xs:mt-3"
+        >
+          {formattedDate(new Date(post.date))}
+        </time>
+        <figure class="mt-6">
+          <img
+            src={post._embedded["wp:featuredmedia"]["0"].source_url}
+            alt={post.title.rendered}
+          />
+        </figure>
+      </header>
       <BlogContentsWrap>
         <div
-          class="blog-singlepage-content mx-auto w-full leading-[1.5] sm:w-[70%]"
+          class="blog-singlepage-content pb-20 leading-[1.5]"
           set:html={post.content.rendered}
         />
       </BlogContentsWrap>
