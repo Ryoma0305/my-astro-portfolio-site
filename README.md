@@ -15,3 +15,9 @@ npm install
 ```
 npm run dev
 ```
+
+## 環境変数
+
+```
+WORDPRESS_API_URL=https://portfolio.ryoma.design/wp-json/wp/v2/posts?_embed
+```
