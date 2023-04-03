@@ -61,12 +61,12 @@ const paginationGenerator = (
 
   {
     totalPageNumber > 1 && (
-      <ul class="xs:px-[1.1rem] flex items-center gap-4 px-[1.2rem] text-gray-600">
+      <ul class="flex items-center gap-4 px-[1.2rem] text-gray-600 xs:px-[1.1rem]">
         {paginationGenerator(currentPageNumber, totalPageNumber).map((page) => {
           if (page === 1 && page === currentPageNumber) {
             return (
               <li class="is-current">
-                <span class="bg-brand flex h-8 w-8 items-center justify-center rounded-full border-transparent text-white lg:duration-300 lg:ease-in-out">
+                <span class="flex h-8 w-8 items-center justify-center rounded-full border-transparent bg-main text-white lg:duration-300 lg:ease-in-out">
                   {page}
                 </span>
               </li>
@@ -85,7 +85,7 @@ const paginationGenerator = (
           } else if (page === currentPageNumber) {
             return (
               <li class="is-current">
-                <span class="bg-brand flex h-8 w-8 items-center justify-center rounded-full border-transparent text-white">
+                <span class="flex  h-8 w-8 items-center justify-center rounded-full border-transparent bg-main text-white">
                   {page}
                 </span>
               </li>
