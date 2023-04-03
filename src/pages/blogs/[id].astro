@@ -30,7 +30,7 @@ const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
   <PageHeader title={"BLOG"} />
   <main id="main">
     <section
-      class="blog-singlepage blog mx-auto mb-[9.6rem] py-[12vw] px-16 sm:w-[70%] sm:px-0 sm:py-20"
+      class="blog-singlepage blog mx-auto mb-[9.6rem] py-[12vw] px-16 sm:mx-auto sm:w-[70%] sm:max-w-[88rem] sm:px-0 sm:py-20"
     >
       <header class="pb-20 leading-[1.5]">
         <h1
@@ -64,7 +64,7 @@ const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
         prevText="前の記事へ"
         nextText="次の記事へ"
       />
-      <p class="mt-10 flex items-center justify-center xs:mt-16">
+      <p class="mt-16 flex items-center justify-center xs:mt-[8rem]">
         <Button href="/blogs/" label="BLOG一覧へ" icon="left" />
       </p>
     </section>
