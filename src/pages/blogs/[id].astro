@@ -26,7 +26,7 @@ const prevSlug = index > 0 ? posts[index - 1].id : "";
 const nextSlug = index < posts.length - 1 ? posts[index + 1].id : "";
 ---
 
-<Layout>
+<Layout title={`${post.title.rendered} | Arimura Ryoma Portfolio Site`}>
   <PageHeader title={"BLOG"} />
   <main id="main">
     <section
