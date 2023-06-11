@@ -1,5 +1,6 @@
 ---
 import Button from "../../components/common/Button.astro";
+import FadeinContentsWrap from "../../components/common/FadeinContentsWrap.astro";
 ---
 
 <footer
@@ -7,96 +8,15 @@ import Button from "../../components/common/Button.astro";
   id="footer"
 >
   <div>
-    <p
-      class="footer-text mb-16 text-center text-[1.4rem] font-bold text-white sm:text-[2.4rem]"
-    >
-      制作の依頼、ご相談お気軽にご連絡下さい。
-    </p>
-    <p class="mt-14 flex items-center justify-center px-5 sm:mt-16">
-      <Button href="/contact/" icon="right" label="CONTACT" variant="cta" />
-    </p>
+    <FadeinContentsWrap>
+      <p
+        class="footer-text mb-16 text-center text-[1.4rem] font-bold text-white sm:text-[2.4rem]"
+      >
+        制作の依頼、ご相談お気軽にご連絡下さい。
+      </p>
+      <p class="mt-14 flex items-center justify-center px-5 sm:mt-16">
+        <Button href="/contact/" icon="right" label="CONTACT" variant="cta" />
+      </p>
+    </FadeinContentsWrap>
   </div>
 </footer>
-<!-- <script>
-  jQuery(function ($) {
-    $(function () {
-      $('a[href^="#"]').click(function () {
-        var speed = 400;
-        var href = $(this).attr("href");
-        var target = $(href == "#" || href == "" ? "html" : href);
-        var position = target.offset().top;
-        $("html, body").animate({ scrollTop: position }, speed, "swing");
-        return false;
-      });
-    });
-  });
-</script> -->
-
-<!-- <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-<script>
-  window.sr = ScrollReveal({ reset: false, mobile: true });
-  sr.reveal(".work-box", {
-    origin: "bottom",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 200,
-    opacity: 0.5,
-  });
-  sr.reveal(".ttl", {
-    origin: "bottom",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 200,
-    opacity: 0.5,
-  });
-  sr.reveal(".mainvisual-ttl", {
-    origin: "left",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 200,
-    opacity: 0.5,
-  });
-  sr.reveal(".mainvisual-text", {
-    origin: "left",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 400,
-    opacity: 0.5,
-  });
-  sr.reveal(".blog-content", {
-    origin: "bottom",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 200,
-    opacity: 0.5,
-  });
-  sr.reveal(".skill-content", {
-    origin: "bottom",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 200,
-    opacity: 0.5,
-  });
-  sr.reveal(".button-container", {
-    origin: "bottom",
-    distance: "50%",
-    duration: 500,
-    scale: 1.0,
-    delay: 200,
-    opacity: 0.5,
-  });
-  sr.reveal(".blog-archive-sidebar-content", {
-    origin: "bottom",
-    distance: "0",
-    duration: 0,
-    scale: 1.0,
-    delay: 0,
-    opacity: 1,
-  });
-</script> -->
