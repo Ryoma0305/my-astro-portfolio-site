@@ -108,5 +108,29 @@ const {
         }
       }, 3000);
     </script>
+    <script>
+      //フェードイン
+      const iSObservers = document.querySelectorAll(".is-observer");
+      const options = {
+        rootMargin: "-30% 0px",
+      };
+
+      const fadeIn = (target: Element) => {
+        target.classList.add("fade-in");
+      };
+
+      const observeUse = (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            fadeIn(entry.target);
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(observeUse, options);
+      iSObservers.forEach((iSObserver) => {
+        observer.observe(iSObserver);
+      });
+    </script>
   </body>
 </html>
