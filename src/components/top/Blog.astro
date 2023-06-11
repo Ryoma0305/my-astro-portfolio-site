@@ -2,67 +2,74 @@
 import { BlogsQuery } from "../../libraries/wordpress";
 
 import Button from "../../components/common/Button.astro";
+import FadeinContentsWrap from "../../components/common/FadeinContentsWrap.astro";
 import { formattedDate } from "../../utility/formattedDate.js";
 
 const data = await BlogsQuery();
 ---
 
 <section class="blog py-20 sm:py-[12vw]">
-  <div class="ttl inner mx-auto w-[86%] font-bold">
-    <div
-      class="ttl section-ttl mb-24 flex flex-col items-center justify-center font-bold"
-    >
-      <h2
-        class="ttl-text1 font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
-      >
-        BLOG
-      </h2>
-      <p class="ttl-text2 mt-4 text-[1.6rem]">What I think</p>
+  <FadeinContentsWrap>
+    <div class="mx-auto w-[86%] font-bold">
+      <div class="mb-24 flex flex-col items-center justify-center font-bold">
+        <h2
+          class="font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
+        >
+          BLOG
+        </h2>
+        <p class="mt-4 text-[1.6rem]">What I think</p>
+      </div>
     </div>
-  </div>
-  <ul
-    class="blog-content mx-auto mb-32 mt-10 flex w-[86%] flex-col justify-between gap-32 sm:grid sm:grid-cols-3 sm:gap-8"
-  >
-    {
-      data.slice(0, 3).map((post: any) => (
-        <li class="relative flex flex-col sm:mb-32">
-          <figure class="blog-image mb-[1.6rem] h-[48vw] sm:h-[16vw]">
-            <img
-              src={post._embedded["wp:featuredmedia"]["0"].source_url}
-              alt={post.title.rendered}
-              class="h-full w-full object-cover"
-            />
-          </figure>
-          <div>
-            <time
-              datetime={new Date(post.date).toISOString()}
-              class="inline-block text-[1.6rem] text-gray-600"
-            >
-              {formattedDate(new Date(post.date))}
-            </time>
-            <h2 class="mt-[2rem] mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
-              <a href="" class="text-[646464]" set:html={post.title.rendered} />
-            </h2>
-            <div
-              class="mb-8 pb-8 text-[1.6rem] leading-[1.5] text-[646464] [&_a]:text-[646464]"
-              set:html={post.excerpt.rendered.replace("[&hellip;]", "")}
-            />
-          </div>
-          <p class="viewmore group mt-auto">
-            <a
-              href={"/blogs/" + post.id + "/"}
-              class="px-[0.6rem] text-[#646464] before:absolute before:inset-0"
-            >
-              <span class="relative transition duration-300 ease-in-out before:absolute before:-bottom-[0.6rem] before:left-0 before:block before:w-full before:origin-bottom-right before:scale-x-0 before:border-b-[0.2rem] before:border-b-black before:transition before:duration-700 group-hover:before:origin-bottom-left group-hover:before:scale-x-100">
-                view more
-              </span>
-            </a>
-          </p>
-        </li>
-      ))
-    }
-  </ul>
-  <p class="mt-14 flex items-center justify-center px-5 sm:mt-16">
-    <Button href="/blogs/" icon="right" label="MORE" variant="cta" />
-  </p>
+  </FadeinContentsWrap>
+  <FadeinContentsWrap>
+    <ul
+      class="mx-auto mb-32 mt-10 flex w-[86%] flex-col justify-between gap-32 sm:grid sm:grid-cols-3 sm:gap-8"
+    >
+      {
+        data.slice(0, 3).map((post: any) => (
+          <li class="relative flex flex-col sm:mb-32">
+            <figure class="blog-image mb-[1.6rem] h-[48vw] sm:h-[16vw]">
+              <img
+                src={post._embedded["wp:featuredmedia"]["0"].source_url}
+                alt={post.title.rendered}
+                class="h-full w-full object-cover"
+              />
+            </figure>
+            <div>
+              <time
+                datetime={new Date(post.date).toISOString()}
+                class="inline-block text-[1.6rem] text-gray-600"
+              >
+                {formattedDate(new Date(post.date))}
+              </time>
+              <h2 class="mt-[2rem] mb-4 text-[1.8rem] font-bold leading-[1.4] text-[646464]">
+                <a
+                  href=""
+                  class="text-[646464]"
+                  set:html={post.title.rendered}
+                />
+              </h2>
+              <div
+                class="mb-8 pb-8 text-[1.6rem] leading-[1.5] text-[646464] [&_a]:text-[646464]"
+                set:html={post.excerpt.rendered.replace("[&hellip;]", "")}
+              />
+            </div>
+            <p class="viewmore group mt-auto">
+              <a
+                href={"/blogs/" + post.id + "/"}
+                class="px-[0.6rem] text-[#646464] before:absolute before:inset-0"
+              >
+                <span class="relative transition duration-300 ease-in-out before:absolute before:-bottom-[0.6rem] before:left-0 before:block before:w-full before:origin-bottom-right before:scale-x-0 before:border-b-[0.2rem] before:border-b-black before:transition before:duration-700 group-hover:before:origin-bottom-left group-hover:before:scale-x-100">
+                  view more
+                </span>
+              </a>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+    <p class="mt-14 flex items-center justify-center px-5 sm:mt-16">
+      <Button href="/blogs/" icon="right" label="MORE" variant="cta" />
+    </p>
+  </FadeinContentsWrap>
 </section>

@@ -1,0 +1,13 @@
+<div class="fade-out is-observer">
+  <slot />
+</div>
+
+<style>
+  .fade-out {
+    @apply translate-y-10 opacity-0 duration-500;
+  }
+
+  .fade-in {
+    @apply translate-y-0 opacity-100;
+  }
+</style>

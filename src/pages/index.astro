@@ -3,6 +3,7 @@ import { Icon } from "astro-icon";
 import Swiper from "../components/Swiper.astro";
 import Blog from "../components/top/Blog.astro";
 import Layout from "../layouts/Layout.astro";
+import FadeinContentsWrap from "../components/common/FadeinContentsWrap.astro";
 
 type SkillType = {
   name: string;
@@ -56,84 +57,91 @@ const skills: SkillType[] = [
       class="profile inner mx-[calc(50%_-_50vw)] w-screen bg-[#f8f8f8] py-32 sm:py-[160px]"
       id="about"
     >
-      <div
-        class="ttl section-ttl mb-24 flex flex-col items-center justify-center font-bold"
-      >
-        <h2
-          class="ttl-text1 font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
-        >
-          ABOUT ME
-        </h2>
-        <p class="ttl-text2 mt-4 text-[1.6rem]">Who I am</p>
-      </div>
-
-      <div
-        class="profile-content mx-auto w-[86%] justify-center sm:flex sm:w-auto"
-      >
-        <p
-          class="profile-content-image mx-auto mb-[1.6rem] w-1/2 sm:mx-0 sm:mr-16 sm:mb-0 sm:w-[15%]"
-        >
-          <img src="/images/ico_ryoma.jpg" alt="" />
-        </p>
-        <div class="profile-content-box w-full sm:w-2/5">
-          <div class="mb-8 flex items-center gap-4">
-            <h2
-              class="profile-content-box-ttl text-center font-accent text-[2rem] sm:text-left"
-            >
-              Arimura Ryoma
-            </h2>
-            <a
-              href="https://github.com/Ryoma0305"
-              target="_blank"
-              class="transiton duration-300 hover:opacity-60"
-            >
-              <Icon name="github" width="24px" height="24px" />
-            </a>
-          </div>
-          <div class="profile-content-box-text text-[1.4rem] leading-[1.6]">
-            <p>
-              大阪出身、１９９１年生まれの３２歳。<br />
-              Web制作、コーディングが大好きです。Web制作に出会い、これからの人生で本当にやりたいことを見つけられたと思っています。<br
-              />
-              Web制作のスキルを上げる為、日々勉強に励んでいます。<br />
-              趣味はサッカー観戦。週末は応援するマイクラブの試合を観にスタジアムに通っています。
-              どうぞよろしくお願いします。
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="skill bg-[f8f8f8] pt-20 sm:pt-[12vw]">
-      <div class="ttl inner font-bold">
+      <FadeinContentsWrap>
         <div
-          class="ttl section-ttl mb-24 flex flex-col items-center justify-center font-bold"
+          class="section-ttl mb-24 flex flex-col items-center justify-center font-bold"
         >
           <h2
-            class="ttl-text1 font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
+            class="font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
           >
-            SKILLS
+            ABOUT ME
           </h2>
-          <p class="ttl-text2 mt-4 text-[1.6rem]">What I do</p>
+          <p class="mt-4 text-[1.6rem]">Who I am</p>
         </div>
-      </div>
-      <div class="skill-wrapper">
-        <ul
-          class="skill-box inner flex flex-wrap justify-between before:order-1 before:block before:w-[24%] after:block after:w-[24%]"
+      </FadeinContentsWrap>
+      <FadeinContentsWrap>
+        <div
+          class="profile-content mx-auto w-[86%] justify-center sm:flex sm:w-auto"
         >
-          {
-            skills.map((item) => (
-              <li class="skill-box-content mb-32 flex w-[48%] flex-col items-center justify-start text-[1.6rem] tracking-widest sm:w-[24%]">
-                <p class="skill-box-content-image mx-auto mb-8 w-32">
-                  <img src={item.image} alt={item.name} />
-                </p>
-                <p class="skill-box-content-ttl mb-8 text-center">
-                  {item.name}
-                </p>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
+          <p
+            class="profile-content-image mx-auto mb-[1.6rem] w-1/2 sm:mx-0 sm:mr-16 sm:mb-0 sm:w-[15%]"
+          >
+            <img src="/images/ico_ryoma.jpg" alt="" />
+          </p>
+          <div class="profile-content-box w-full sm:w-2/5">
+            <div class="mb-8 flex items-center gap-4">
+              <h2
+                class="profile-content-box-ttl text-center font-accent text-[2rem] sm:text-left"
+              >
+                Arimura Ryoma
+              </h2>
+              <a
+                href="https://github.com/Ryoma0305"
+                target="_blank"
+                class="transiton duration-300 hover:opacity-60"
+              >
+                <Icon name="github" width="24px" height="24px" />
+              </a>
+            </div>
+            <div class="profile-content-box-text text-[1.4rem] leading-[1.6]">
+              <p>
+                大阪出身、１９９１年生まれの３２歳。<br />
+                Web制作、コーディングが大好きです。Web制作に出会い、これからの人生で本当にやりたいことを見つけられたと思っています。<br
+                />
+                Web制作のスキルを上げる為、日々勉強に励んでいます。<br />
+                趣味はサッカー観戦。週末は応援するマイクラブの試合を観にスタジアムに通っています。
+                どうぞよろしくお願いします。
+              </p>
+            </div>
+          </div>
+        </div>
+      </FadeinContentsWrap>
+    </section>
+    <section class="skill bg-[f8f8f8] pt-20 sm:pt-[12vw]">
+      <FadeinContentsWrap>
+        <div class="font-bold">
+          <div
+            class="mb-24 flex flex-col items-center justify-center font-bold"
+          >
+            <h2
+              class="font-accent text-[3rem] after:mt-2 after:block after:h-1 after:bg-accent sm:text-[5rem]"
+            >
+              SKILLS
+            </h2>
+            <p class="mt-4 text-[1.6rem]">What I do</p>
+          </div>
+        </div>
+      </FadeinContentsWrap>
+      <FadeinContentsWrap>
+        <div class="skill-wrapper">
+          <ul
+            class="skill-box inner flex flex-wrap justify-between before:order-1 before:block before:w-[24%] after:block after:w-[24%]"
+          >
+            {
+              skills.map((item) => (
+                <li class="skill-box-content mb-32 flex w-[48%] flex-col items-center justify-start text-[1.6rem] tracking-widest sm:w-[24%]">
+                  <p class="skill-box-content-image mx-auto mb-8 w-32">
+                    <img src={item.image} alt={item.name} />
+                  </p>
+                  <p class="skill-box-content-ttl mb-8 text-center">
+                    {item.name}
+                  </p>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </FadeinContentsWrap>
     </section>
     <Blog />
     <Swiper />
