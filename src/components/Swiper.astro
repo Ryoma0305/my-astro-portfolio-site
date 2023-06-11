@@ -1,18 +1,26 @@
-<section class="value">
-  <div class="value-ttl-wrapper bg-[#262626]">
+---
+import FadeinContentsWrap from "../components/common/FadeinContentsWrap.astro";
+---
+
+<section>
+  <div class="bg-[#262626]">
     <div
-      class="value-ttl mx-auto w-[58.5%] pt-[13.5rem] pb-[7.8rem] sm:pt-[24rem] sm:pb-[15.8rem]"
+      class="mx-auto w-[58.5%] pt-[13.5rem] pb-[7.8rem] sm:pt-[24rem] sm:pb-[15.8rem]"
     >
-      <p
-        class="value-ttl-text1 mb-[3.2rem] text-center font-accent text-[2rem] font-bold text-[#7ad6bb] sm:mb-[3.7rem] sm:text-[32px]"
-      >
-        My Value
-      </p>
-      <p
-        class="value-ttl-text2 mb-[1.6rem] text-center text-[2.4rem] leading-[1.5] text-white sm:mb-[24px] sm:text-4xl sm:leading-[1.33333]"
-      >
-        継続は力なり
-      </p>
+      <FadeinContentsWrap>
+        <p
+          class="mb-[3.2rem] text-center font-accent text-[2rem] font-bold text-[#7ad6bb] sm:mb-[3.7rem] sm:text-[32px]"
+        >
+          My Value
+        </p>
+      </FadeinContentsWrap>
+      <FadeinContentsWrap>
+        <p
+          class="mb-[1.6rem] text-center text-[2.4rem] leading-[1.5] text-white sm:mb-[24px] sm:text-4xl sm:leading-[1.33333]"
+        >
+          継続は力なり
+        </p>
+      </FadeinContentsWrap>
     </div>
   </div>
   <div class="swiper">
