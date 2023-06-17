@@ -15,88 +15,111 @@ const { links, path } = Astro.props;
     <div
       class="fixed top-0 w-full bg-main text-base text-white transition duration-300 ease-linear [.is-scrolled.p-top_&]:bg-white [.is-scrolled_&]:shadow-[0_3px_6px_rgba(0,0,0,0.05)] [.p-top_&]:bg-transparent [.p-top_&]:transition [.p-top_&]:duration-300 [.p-top_&]:ease-linear"
     >
-      <div class="flex h-20 items-center px-5">
-        <p class="font-accent text-[1.4rem] font-bold">
+      <div class="h-20 items-center">
+        <p class="bg-main py-8 px-5 font-accent text-[1.4rem] font-bold">
           <a href="/" class="duration-300 ease-in-out hover:opacity-60"
-            >RYOMA ARIMURA</a
+            >ARIMURA RYOMA</a
           >
         </p>
-        <button
-          class="absolute right-2 top-1/2 z-[1] h-[3.1rem] w-[3.1rem] -translate-y-1/2 cursor-pointer"
-          type="button"
-          data-js-open-btn
-        >
-          <span
-            class="absolute right-4 inline-block h-[1px] rounded-[3px] bg-white duration-[0.4s] ease-in-out [&:not(.is-spMenuOpened)]:top-[1.06rem] [&:not(.is-spMenuOpened)]:w-4 [.is-spMenuOpened_&]:top-[1.12rem] [.is-spMenuOpened_&]:left-[1.12rem] [.is-spMenuOpened_&]:w-[30%] [.is-spMenuOpened_&]:translate-y-1.5 [.is-spMenuOpened_&]:-rotate-45"
-          ></span>
-          <span
-            class="absolute right-4 top-[1.43rem] inline-block h-[1px] w-4 rounded-[3px] bg-white duration-[0.4s] ease-in-out [.is-spMenuOpened_&]:opacity-0"
-          ></span>
-          <span
-            class="absolute right-4 inline-block h-[1px] rounded-[3px] bg-white duration-[0.4s] ease-in-out [&:not(.is-spMenuOpened)]:top-[1.81rem] [&:not(.is-spMenuOpened)]:w-4 [.is-spMenuOpened_&]:top-[1.87rem] [.is-spMenuOpened_&]:left-[1.12rem] [.is-spMenuOpened_&]:w-[30%] [.is-spMenuOpened_&]:-translate-y-1.5 [.is-spMenuOpened_&]:rotate-45"
-          ></span>
-        </button>
-      </div>
-    </div>
-    <div
-      class="fixed inset-0 hidden h-[100vh] bg-white px-5 pb-10 pt-24 [.is-spMenuOpened_&]:block [.is-spMenuOpened_&]:overflow-y-scroll"
-    >
-      <header class="absolute left-0 right-0 top-0 px-5">
-        <div class="flex h-20 items-center">
-          <p class="font-accent text-[1.4rem] font-bold">
-            <a href="/" class="duration-300 ease-in-out hover:opacity-60"
-              >RYOMA ARIMURA</a
-            >
-          </p>
+        <nav aria-label="メイン">
           <button
-            class="absolute right-2 top-1/2 z-[1] h-[3.1rem] w-[3.1rem] -translate-y-1/2 cursor-pointer"
+            class="group fixed right-2 top-8 z-[1] h-[3.1rem] w-[3.1rem] -translate-y-1/2 cursor-pointer"
             type="button"
-            data-js-close-btn
+            aria-label="メニュー"
+            aria-expanded="false"
+            hidden=""
           >
             <span
-              class="absolute right-4 inline-block h-[1px] rounded-[3px] bg-black duration-[0.4s] ease-in-out [&:not(.is-spMenuOpened)]:top-[1.06rem] [&:not(.is-spMenuOpened)]:w-4 [.is-spMenuOpened_&]:top-[1.12rem] [.is-spMenuOpened_&]:left-[1.12rem] [.is-spMenuOpened_&]:w-[30%] [.is-spMenuOpened_&]:translate-y-1.5 [.is-spMenuOpened_&]:-rotate-45"
+              class="absolute right-4 top-[1.06rem] inline-block h-[1px] w-4 rounded-[3px] bg-white duration-[0.4s] ease-in-out group-aria-expanded:top-[1.12rem] group-aria-expanded:left-[1.12rem] group-aria-expanded:w-[30%] group-aria-expanded:translate-y-1.5 group-aria-expanded:-rotate-45"
             ></span>
             <span
-              class="absolute right-4 top-[1.43rem] inline-block h-[1px] w-4 rounded-[3px] bg-black duration-[0.4s] ease-in-out [.is-spMenuOpened_&]:opacity-0"
+              class="absolute right-4 top-[1.43rem] inline-block h-[1px] w-4 rounded-[3px] bg-white duration-[0.4s] ease-in-out group-aria-expanded:opacity-0"
             ></span>
             <span
-              class="absolute right-4 inline-block h-[1px] rounded-[3px] bg-black duration-[0.4s] ease-in-out [&:not(.is-spMenuOpened)]:top-[1.81rem] [&:not(.is-spMenuOpened)]:w-4 [.is-spMenuOpened_&]:top-[1.87rem] [.is-spMenuOpened_&]:left-[1.12rem] [.is-spMenuOpened_&]:w-[30%] [.is-spMenuOpened_&]:-translate-y-1.5 [.is-spMenuOpened_&]:rotate-45"
+              class="absolute right-4 top-[1.81rem] inline-block h-[1px] w-4 rounded-[3px] bg-white duration-[0.4s] ease-in-out group-aria-expanded:top-[1.87rem] group-aria-expanded:left-[1.12rem] group-aria-expanded:w-[30%] group-aria-expanded:-translate-y-1.5 group-aria-expanded:rotate-45"
             ></span>
           </button>
-        </div>
-      </header>
-
-      <ul>
-        {
-          links.map((link) => (
-            <li class="py-4 font-bold">
-              <a
-                href={link.href}
-                class={`relative inline-flex gap-1 ${
-                  path.includes(link.href)
-                    ? "before:ease-out-expo before:absolute before:-bottom-[0.2rem] before:left-0 before:block before:w-full before:origin-bottom-left before:scale-x-100 before:border-b-[0.2rem] before:border-b-black before:transition before:duration-700"
-                    : ""
-                }`}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))
-        }
-      </ul>
+          <div class="h-screen w-full bg-main p-5">
+            <ul role="list">
+              {
+                links.map((link) => (
+                  <li class="py-6 text-4xl font-bold">
+                    <a
+                      href={link.href}
+                      class={`relative inline-flex gap-1 ${
+                        path.includes(link.href)
+                          ? "before:absolute before:-bottom-[0.2rem] before:left-0 before:block before:w-full before:origin-bottom-left before:scale-x-100 before:border-b-[0.2rem] before:border-b-black before:transition before:duration-700 before:ease-out-expo"
+                          : ""
+                      }`}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </nav>
+      </div>
     </div>
   </>
 </div>
 
 <script>
-  //トグルボタンクリックでis-spMenuOpenedクラスを付与する
-  const bodyElement = document.querySelector("body") as HTMLElement;
-  const openBtn = document.querySelector("[data-js-open-btn]") as HTMLElement;
-  const closeBtn = document.querySelector("[data-js-close-btn]") as HTMLElement;
+  // モバイルメニュー開閉
 
-  const handler = () => {
-    bodyElement.classList.toggle("is-spMenuOpened");
+  const MOBILE_WIDTH = 768;
+
+  const isMobileSize = () => {
+    return window.innerWidth <= MOBILE_WIDTH;
   };
-  openBtn.addEventListener("click", handler);
-  closeBtn.addEventListener("click", handler);
+
+  class MobileMenu {
+    button: HTMLButtonElement;
+    menu: HTMLElement;
+    constructor() {
+      this.button = document.querySelector(
+        '[aria-label="メイン"] button'
+      ) as HTMLButtonElement;
+      this.menu = this.button.nextElementSibling as HTMLElement;
+
+      //リサイズハンドリング
+      window.addEventListener("resize", this.initialize.bind(this));
+
+      //初回アップデート
+      this.initialize();
+      this.update();
+    }
+
+    initialize() {
+      if (!isMobileSize()) {
+        this.button.removeAttribute("aria-expanded");
+        this.button.hidden = true;
+        this.menu.hidden = false;
+        return;
+      }
+
+      this.button.setAttribute("aria-expanded", "false");
+      this.button.hidden = false;
+      this.menu.hidden = true;
+    }
+
+    update() {
+      this.button.addEventListener("click", function () {
+        // メニューの表示／非表示を切り替える
+        const expanded = this.getAttribute("aria-expanded") === "true";
+        this.setAttribute("aria-expanded", String(!expanded));
+        this.nextElementSibling.hidden = expanded;
+      });
+    }
+  }
+
+  const init = () => {
+    new MobileMenu();
+    // new AccordionMenu();
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    init();
+  });
 </script>

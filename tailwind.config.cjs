@@ -39,6 +39,9 @@ module.exports = {
       animation: {
         sdb: "sdb 1.5s infinite",
       },
+      aria: {
+        invalid: 'invalid="true"',
+      },
     },
   },
   plugins: [],
